@@ -1,541 +1,120 @@
-flight-table td:nth-child(6) { width: 4%; text-align: center; }
-        .flight-table th:nth-child(7), .flight-table td:nth-child(7) { width: 4%; text-align: center; }
+<option value="delayed">DELAYED</option>
+                    </select>
+                </div>
+                <button id="add-flight-submit" class="btn" style="padding: 10px 20px; font-size: 1rem; width: 100%;">Add Flight</button>
+            </div>
+        </div>
 
-        .flight-table th {
-            background-color: #071733;
-            color: #5c7599;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        <div id="code-modal" class="modal">
+            <div class="modal-content" style="max-width: 600px;">
+                <h3>Табло обновлено!</h3>
+                <p style="font-size: 0.9rem; color: #8da2c4; margin-bottom: 15px;">Чтобы изменения сохранились навсегда для всех игроков, скопируй код ниже, замени им блок строк в файле <b>index.html</b> на GitHub и нажми Commit changes.</p>
+                <textarea id="output-code" readonly style="width:100%; height:120px; background:#051026; color:#00d4ff; border:1px solid #1c4380; padding:10px; font-family:monospace; border-radius:5px; resize:none;"></textarea>
+                <button id="copy-code-btn" class="btn" style="padding: 10px 20px; font-size: 1rem; margin-top: 15px; width: 100%;">Скопировать код для GitHub</button>
+            </div>
+        </div>
 
-        .flight-table tbody tr:hover {
-            background-color: #071938;
-        }
+        <footer class="disclaimer">
+            This website is for Roblox entertainment purposes only and is not affiliated with real JSC Aeroflot.
+        </footer>
+    </div>
 
-        /* ЦВЕТА СТАТУСОВ */
-        .status {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .status.scheduled { color: #ffcc00; }
-        .status.boarding { color: #00ff66; text-shadow: 0 0 8px rgba(0,255,102,0.3); }
-        .status.delayed { color: #ff3333; text-shadow: 0 0 8px rgba(255,51,51,0.3); }
-        .status.departed { color: #b55fe6; }
-        .status.cancelled { color: #738299; text-decoration: line-through; opacity: 0.6; }
-        .status.ontime { color: #00d4ff; }
-
-        /* ИКОНКИ ДЕЙСТВИЙ */
-        .action-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: transform 0.1s, opacity 0.2s;
-            opacity: 0.6;
-        }
-        .action-btn:hover {
-            opacity: 1;
-            transform: scale(1.15);
-        }
-        .edit-btn { color: #00d4ff; }
-        .delete-btn { color: #ff3333; }
-
-        /* ПАНЕЛЬ СОЗДАНИЯ */
-        .admin-panel {
-            background-color: #051126;
-            border: 2px solid #142d54;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .panel-header {
-            background-color: #071733;
-            padding: 12px 20px;
-            border-bottom: 1px solid #142d54;
-        }
-        .panel-header h3 {
-            font-size: 1rem;
-            color: #00d4ff;
-        }
-
-        .admin-form {
-            padding: 20px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.8rem;
-            color: #8da2c4;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            background-color: #020712;
-            border: 1px solid #142d54;
-            padding: 10px;
-            color: #ffffff;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            outline: none;
-        }
-        .form-group input:focus, .form-group select:focus {
-            border-color: #00d4ff;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #1e3e7a 0%, #0f2552 100%);
-            color: #ffffff;
-            border: 1px solid #3359a6;
-            padding: 12px 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .submit-btn:hover {
-            background: linear-gradient(135deg, #28519e 0%, #13316b 100%);
-            border-color: #4772c7;
-        }
-
-        /* ОКНО С КОДОМ ДЛЯ КОПИРОВАНИЯ */
-        .code-box {
-            display: none;
-            background-color: #040c1a;
-            border: 1px dashed #00d4ff;
-            padding: 20px;
-            border-radius: 6px;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .code-box h3 {
-            font-size: 0.95rem;
-            color: #00d4ff;
-        }
-        .code-box textarea {
-            width: 100%;
-            height: 120px;
-            background-color: #02060d;
-            border: 1px solid #142d54;
-            color: #00ffcc;
-            padding: 10px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            resize: none;
-            <!DOCTYPE html>
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeroflat PTFS | Flight Information Board</title>
+    <title>Aeroflat PTFS | Welcome</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- СТИЛИ (CSS) --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        body {
-            background-color: #030a1c;
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* НАВИГАЦИЯ */
-        .navbar {
-            width: 100%;
-            height: 70px;
-            background-color: #06142c;
-            border-bottom: 2px solid #142d54;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: #00d4ff;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 10px;
-            height: 100%;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            color: #8da2c4;
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 0 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            color: #ffffff;
-            background-color: #091f42;
-            border-bottom-color: #00d4ff;
-        }
-
-        .discord-tab {
-            color: #7289da;
-        }
-        .discord-tab:hover {
-            border-bottom-color: #7289da;
-            background-color: #1a1e29;
-        }
-
-        /* ОСНОВНОЙ КОНТЕНТ */
-        .menu-content {
-            max-width: 1100px;
-            width: 100%;
-            margin: 30px auto;
-            padding: 0 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        /* ТАБЛО И ТАБЛИЦА */
-        .scoreboard {
-            background-color: #051126;
-            border: 2px solid #142d54;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-
-        .scoreboard-header {
-            background-color: #091a36;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 2px solid #142d54;
-        }
-
-        .scoreboard-header h3 {
-            font-size: 1.1rem;
-            letter-spacing: 4px;
-            color: #8da2c4;
-        }
-
-        .flight-table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-        }
-
-        .flight-table th, .flight-table td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid #0f2342;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            vertical-align: middle;
-        }
-
-        /* Фиксированные размеры ячеек */
-        .flight-table th:nth-child(1), .flight-table td:nth-child(1) { width: 15%; font-family: monospace; font-size: 1.1rem; color: #00d4ff; }
-        .flight-table th:nth-child(2), .flight-table td:nth-child(2) { width: 35%; font-weight: 600; }
-        .flight-table th:nth-child(3), .flight-table td:nth-child(3) { width: 15%; color: #a0b2c6; }
-        .flight-table th:nth-child(4), .flight-table td:nth-child(4) { width: 13%; color: #a0b2c6; font-family: monospace; }
-        .flight-table th:nth-child(5), .flight-table td:nth-child(5) { width: 14%; }
-        .flight-table th:nth-child(6), .
-      border-radius: 4px;
-        }
-
-        .disclaimer {
-            text-align: center;
-            color: #415675;
-            font-size: 0.8rem;
-            padding: 20px 0;
-            margin-top: auto;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- ВЕРХНЕЕ МЕНЮ -->
-    <header class="navbar">
-        <div class="logo">AEROFLAT</div>
-        <div class="nav-tabs">
-            <button class="tab-btn active">
-                <i class="fas fa-plane"></i> Flights
-            </button>
-            <a href="https://discord.gg/ACfAC7qVJy" target="_blank" class="tab-btn discord-tab">
-                <i class="fab fa-discord"></i> Discord
-            </a>
+    <div id="welcome-screen" class="screen active">
+        <div class="welcome-container">
+            <h1 class="big-title">Welcome to Aeroflat!</h1>
+            <button id="continue-btn" class="btn">Continue</button>
         </div>
-    </header>
+    </div>
 
-    <main class="menu-content">
+    <div id="main-screen" class="screen">
         
-        <!-- ТАБЛО РЕЙСОВ -->
-        <div class="scoreboard">
-            <div class="scoreboard-header">
-                <h3>FLIGHT INFORMATION BOARD</h3>
+        <header class="navbar">
+            <div class="logo">AEROFLAT</div>
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab('flights')">
+                    <i class="fas fa-plane"></i> Flights
+                </button>
+                <a href="https://discord.gg/ACfAC7qVJy" target="_blank" class="tab-btn discord-tab">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
             </div>
-            <table class="flight-table">
-                <thead>
-                    <tr>
-                        <th>FLIGHT</th>
-                        <th>ROUTE</th>
-                        <th>DATE</th>
-                        <th>TIME (UTC)</th>
-                        <th>STATUS</th>
-                        <th style="width: 60px;">EDIT</th>
-                        <th style="width: 50px;"></th>
-                    </tr>
-                </thead>
-                <tbody id="flight-table-body">
-                    <tr>
-                        <td>AFL-201</td>
-                        <td>MOSCOW — NEW YORK</td>
-                        <td>14 JUNE</td>
-                        <td>15:00</td>
-                        <td><span class="status scheduled" id="status-text-0">NOT ARRIVED</span></td>
-                        <td>
-                            <button class="action-btn edit-btn" onclick="editStatusInline('status-text-0')">
-                                <i class="fas fa-pen"></i>
-                            </button>
-                        </td>
-                        <td>
-                            <button class="action-btn delete-btn" onclick="deleteRowInline(this)">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        </header>
 
-        <!-- ПАНЕЛЬ УПРАВЛЕНИЯ -->
-        <div class="admin-panel">
-            <div class="panel-header">
-                <h3><i class="fas fa-plus-circle"></i> Create New Flight</h3>
+        <main class="menu-content">
+            <div class="title-container">
+                <h2 class="sub-title">What are you interested in?</h2>
+                <button id="admin-panel-btn" class="admin-btn">
+                    <i class="fas fa-plus-circle"></i> Create Flight
+                </button>
             </div>
-            <div class="admin-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Flight Number</label>
-                        <input type="text" id="f-num" placeholder="e.g., AFL-201">
-                    </div>
-                    <div class="form-group">
-                        <label>Route</label>
-                        <input type="text" id="f-route" placeholder="e.g., MOSCOW — NEW YORK">
-                    </div>
-                    <div class="form-group">
-                        <label>Date</label>
-                        <input type="text" id="f-date" placeholder="e.g., 14 JUNE">
-                    </div>
-                    <div class="form-group">
-                        <label>Time (UTC)</label>
-                        <input type="text" id="f-time" placeholder="e.g., 15:00">
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select id="f-status">
-                            <option value="scheduled">NOT ARRIVED</option>
-                            <option value="boarding">BOARDING</option>
-                            <option value="delayed">DELAYED</option>
-                            <option value="departed">DEPARTED</option>
-                            <option value="cancelled">CANCELLED</option>
-                            <option value="ontime">ON TIME</option>
-                        </select>
-                    </div>
-                </div>
-                <button class="submit-btn" onclick="addNewFlight()">Add Flight</button>
-            </div>
-        </div>
-
-        <!-- ОКНО С КОДОМ ДЛЯ КОПИРОВАНИЯ -->
-        <div id="code-output-box" class="code-box">
-            <h3>Табло обновлено! Скопируй этот HTML-код, чтобы заменить им тело таблицы на GitHub:</h3>
-            <textarea id="output-textarea" readonly></textarea>
-            <button class="submit-btn" onclick="copyGeneratedCode()">Скопировать код</button>
-        </div>
-
-    </main>
-
-    <footer class="disclaimer">
-        This website is for Roblox entertainment purposes only and is not affiliated with real JSC Aeroflot.
-    </footer>
-
-    <!-- --- ЛОГИКА (JAVASCRIPT) --- */ -->
-    <script>
-        const SECRET_PASSWORD = "ApoPoP-AAAQUn2121Q-JJoOpP"; // Новый пароль прописан здесь
-        let rowCounter = 1;
-
-        // Удаление строки рейса
-        function deleteRowInline(button) {
-            const passwordInput = prompt("Введите секретный пароль администратора для удаления:");
-            if (passwordInput === SECRET_PASSWORD) {
-                const row = button.closest("tr");
-                if (row) row.remove();
-                updateGitHubCodeOutput();
-            } else if (passwordInput !== null) {
-                alert("Неверный пароль!");
-            }
-        }
-
-        // Быстрое изменение статуса в таблице
-        function editStatusInline(statusId) {
-            const statusSpan = document.getElementById(statusId);
-            if (!statusSpan) return;
-
-            const passwordInput = prompt("Введите секретный пароль для изменения статуса:");
-            if (passwordInput === SECRET_PASSWORD) {
-                const currentText = statusSpan.textContent.trim();
-                
-                const select = document.createElement("select");
-                select.style.background = "#020712";
-                select.style.color = "#ffffff";
-                select.style.border = "1px solid #00d4ff";
-                select.style.padding = "3px";
-                select.style.borderRadius = "4px";
-
-                const statuses = [
-                    { val: 'scheduled', text: 'NOT ARRIVED' },
-                    { val: 'boarding', text: 'BOARDING' },
-                    { val: 'delayed', text: 'DELAYED' },
-                    { val: 'departed', text: 'DEPARTED' },
-                    { val: 'cancelled', text: 'CANCELLED' },
-                    { val: 'ontime', text: 'ON TIME' }
-                ];
-
-                statuses.forEach(st => {
-                    const opt = document.createElement("option");
-                    opt.value = st.val;
-                    opt.textContent = st.text;
-                    if (st.text === currentText) opt.selected = true;
-                    select.appendChild(opt);
-                });
-
-                const parentTd = statusSpan.parentElement;
-                parentTd.innerHTML = "";
-                parentTd.appendChild(select);
-                select.focus();
-
-                function saveStatus() {
-                    const chosenValue = select.value;
-                    const chosenText = select.options[select.selectedIndex].text;
-                    
-                    parentTd.innerHTML = <span class="status ${chosenValue}" id="${statusId}">${chosenText}</span>;
-                    updateGitHubCodeOutput();
-                }
-
-                select.addEventListener("change", saveStatus);
-                select.addEventListener("blur", saveStatus);
-
-            } else if (passwordInput !== null) {
-                alert("Неверный пароль!");
-            }
-        }
-
-        // Добавление нового рейса
-        function addNewFlight() {
-            const numInput = document.getElementById("f-num");
-            const routeInput = document.getElementById("f-route");
-            const dateInput = document.getElementById("f-date");
-            const timeInput = document.getElementById("f-time");
-            const statusSelect = document.getElementById("f-status");
-
-            const num = numInput.value.toUpperCase() || "AFL-000";
-          const route = routeInput.value.toUpperCase() || "UNKNOWN";
-            const date = dateInput.value.toUpperCase() || "TODAY";
-            const time = timeInput.value || "00:00";
-            const statusVal = statusSelect.value;
-            const statusText = statusSelect.options[statusSelect.selectedIndex].text;
-
-            const tableBody = document.getElementById("flight-table-body");
-            const currentId = status-text-${rowCounter++};
-
-            const newRow = document.createElement("tr");
-            newRow.innerHTML = `
-                <td>${num}</td>
-                <td>${route}</td>
-                <td>${date}</td>
-                <td>${time}</td>
-                <td><span class="status ${statusVal}" id="${currentId}">${statusText}</span></td>
-                <td>
-                    <button class="action-btn edit-btn" onclick="editStatusInline('${currentId}')">
-                        <i class="fas fa-pen"></i>
-                    </button>
-                </td>
-                <td>
-                    <button class="action-btn delete-btn" onclick="deleteRowInline(this)">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </td>
-            `;
-
-            tableBody.appendChild(newRow);
             
-            // Очистка полей ввода
-            numInput.value = "";
-            routeInput.value = "";
-            dateInput.value = "";
-            timeInput.value = "";
+            <div id="flights-tab" class="tab-content active">
+                <div class="scoreboard">
+                    <div class="scoreboard-header">
+                        <h3>FLIGHT INFORMATION BOARD</h3>
+                    </div>
+                    <table class="flight-table">
+                        <thead>
+                            <tr>
+                                <th>FLIGHT</th>
+                                <th>ROUTE</th>
+                                <th>DATE</th>
+                                <th>TIME (UTC)</th>
+                                <th>STATUS</th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="flight-table-body">
+                            <tr>
+                                <td>AFL-201</td>
+                                <td>MOSCOW — NEW YORK</td>
+                                <td>14 JUNE</td>
+                                <td>15:00</td>
+                                <td class="status scheduled">NOT ARRIVED</td>
+                                <td><button class="delete-btn">&times;</button></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </main>
 
-            updateGitHubCodeOutput();
-        }
-
-        // Обновление блока генерации HTML кода для сохранения
-        function updateGitHubCodeOutput() {
-            const tableBody = document.getElementById("flight-table-body");
-            const codeBox = document.getElementById("code-output-box");
-            const textarea = document.getElementById("output-textarea");
-
-            if (!tableBody  !codeBox  !textarea) return;
-
-            const cleanRowsClone = tableBody.cloneNode(true);
-            textarea.value = cleanRowsClone.innerHTML.trim();
-            codeBox.style.display = "flex";
-        }
-
-        // Копирование кода
-        function copyGeneratedCode() {
-            const textarea = document.getElementById("output-textarea");
-            if (textarea) {
-                textarea.select();
-                document.execCommand("copy");
-                alert("Код скопирован! Теперь ты можешь заменить им строки в index.html на GitHub, если хочешь сохранить табло навсегда.");
-            }
-        }
-    </script>
-</body>
-</html>
+        <div id="flight-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Create New Flight</h3>
+                <div class="form-group">
+                    <label>Flight Number:</label>
+                    <input type="text" id="f-num" placeholder="e.g., AFL-201">
+                </div>
+                <div class="form-group">
+                    <label>Route:</label>
+                    <input type="text" id="f-route" placeholder="e.g., MOSCOW — NEW YORK">
+                </div>
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="text" id="f-date" placeholder="e.g., 14 JUNE">
+                </div>
+                <div class="form-group">
+                    <label>Time (UTC):</label>
+                    <input type="text" id="f-time" placeholder="e.g., 15:00">
+                </div>
+                <div class="form-group">
+                    <label>Status:</label>
+                    <select id="f-status">
+                        <option value="scheduled">NOT ARRIVED</option>
+                        <option value="boarding">BOARDING</option>
