@@ -1,0 +1,16 @@
+/* Стили для кнопки удаления рейса */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff3333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    padding: 0 5px;
+}
+
+.delete-btn:hover {
+    color: #ff6666;
+    transform: scale(1.2);
+}
